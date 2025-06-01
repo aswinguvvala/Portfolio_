@@ -356,7 +356,73 @@ img {
 /* Print styles */
 @media print {
   .no-print {
-    display: none;
+    display: none !important;
+  }
+
+  /* Print-friendly styles */
+  body.print-mode,
+  body.print-mode * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+  }
+
+  .glass {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #ccc !important;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #000 0%, #333 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  .neural-bg::before {
+    display: none !important;
+  }
+
+  /* Ensure proper spacing for print */
+  .print\:space-y-8 > * + * {
+    margin-top: 2rem !important;
+  }
+
+  /* Hide interactive elements */
+  button:not(.print-keep),
+  .no-print {
+    display: none !important;
+  }
+
+  /* Adjust font sizes for print */
+  .responsive-text-5xl {
+    font-size: 2.5rem !important;
+  }
+
+  .responsive-text-4xl {
+    font-size: 2rem !important;
+  }
+
+  .responsive-text-3xl {
+    font-size: 1.75rem !important;
+  }
+
+  .responsive-text-2xl {
+    font-size: 1.5rem !important;
+  }
+
+  .responsive-text-xl {
+    font-size: 1.25rem !important;
+  }
+
+  .responsive-text-lg {
+    font-size: 1.125rem !important;
+  }
+
+  /* Ensure content breaks properly */
+  .glass {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
   
   * {

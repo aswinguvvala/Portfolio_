@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { experience } from '@/lib/data'
+import { experiences, type Experience } from '@/lib/data'
 import GlassCard from './ui/GlassCard'
 import { Briefcase } from 'lucide-react'
 
@@ -30,7 +30,7 @@ export default function Experience() {
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 hidden md:block" />
 
             <div className="space-y-12">
-              {experience.map((exp, index) => (
+              {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -50 }}
@@ -47,16 +47,16 @@ export default function Experience() {
                     <GlassCard>
                       <div className="flex flex-wrap justify-between items-start mb-4">
                         <div>
-                          <h3 className="text-2xl font-semibold">{exp.title}</h3>
+                          <h3 className="text-2xl font-semibold">{exp.position}</h3>
                           <p className="text-lg text-primary">{exp.company}</p>
                         </div>
-                        <span className="text-sm text-muted-foreground">{exp.period}</span>
+                        <span className="text-sm text-muted-foreground">{exp.duration}</span>
                       </div>
                       
-                      <p className="text-muted-foreground mb-4">{exp.description}</p>
+                      <p className="text-muted-foreground mb-4">{exp.location}</p>
                       
                       <ul className="space-y-2">
-                        {exp.achievements.map((achievement, i) => (
+                        {exp.description.map((achievement, i) => (
                           <li key={i} className="flex items-start">
                             <span className="text-primary mr-2 mt-1">•</span>
                             <span className="text-sm text-muted-foreground">{achievement}</span>
