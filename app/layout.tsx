@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 import Navigation from '@/components/Navigation'
+import ResumeRAGChatbot from '@/components/ResumeRAGChatbot'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -119,6 +120,7 @@ export default function RootLayout({
             <main className="relative z-0">
               {children}
             </main>
+            <ResumeRAGChatbot />
           </Providers>
         </div>
       </body>
